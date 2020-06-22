@@ -1,0 +1,62 @@
+﻿@page "{idGoods:int}"
+@model EditGoodsModel
+@{
+    ViewData["Title"] = "Изменить товары";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr><th class="col1">ID</th><th class="col2">Наименование товара</th><th class="col3">Модель</th><th class="col4">Характеристики товара</th><th class="col5">Стоимость товара</th></tr>
+    </thead>
+    <tbody 
+    @foreach (var goods in Model.GoodsGet) 
+    { 
+        <tr><th class="col1">@goods.idGoods</th><th class="col2">@goods.name</th><th class="col3">@goods.model</th><th class="col4">@goods.characteristic</th><th class="col5">@goods.sum</th>
+        <form method="post">
+             <a asp-page="Edit" asp-route-id="@goods.idGoods">Изменить</a>
+             <button type="submit" asp-page-handler="delete" asp-route-id="@goods.idGoods">
+                   Удалить
+             </button>
+        </form>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="Goods.idGoods" type="hidden" />
+    <div>
+        <label>Наименование товара</label>
+        <div>
+            <input asp-for="Goods.name" />
+            <span asp-validation-for="Goods.name"></span>
+        </div>
+    </div>
+    <div>
+        <label>Модель товара</label>
+        <div>
+            <input asp-for="Goods.model" type="number" />
+            <span asp-validation-for="Goods.model"></span>
+        </div>
+    </div>
+    <div>
+        <label>Характеристикики товара</label>
+        <div>
+            <input asp-for="Goods.characteristic" />
+            <span asp-validation-for="Goods.characteristic"></span>
+        </div>
+    </div>
+    <div>
+        <label>Цена товара</label>
+        <div>
+            <input asp-for="Goods.sum" />
+            <span asp-validation-for="Goods.sum"></span>
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Сохранить" />
+    </div>
+</form>

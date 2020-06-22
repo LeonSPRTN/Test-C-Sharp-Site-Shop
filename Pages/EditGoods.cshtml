@@ -1,0 +1,47 @@
+﻿@page "{idGoods:int}"
+@model EditGoodsModel
+@{
+    ViewData["Title"] = "Изменить товары";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="Goods.idGoods" type="hidden" />
+    <input asp-for="Goods.idStorageRoom" type="hidden" />
+    <div>
+        <label>Наименование товара</label>
+        <div>
+            <input asp-for="Goods.name" />
+            <span asp-validation-for="Goods.name"></span>
+        </div>
+    </div>
+    <br />
+    <div>
+        <label>Модель товара</label>
+        <div>
+            <input asp-for="Goods.model" />
+            <span asp-validation-for="Goods.model"></span>
+        </div>
+    </div>
+    <br />
+    <div>
+        <label>Характеристикики товара</label>
+        <div>
+            <input asp-for="Goods.characteristic" />
+            <span asp-validation-for="Goods.characteristic"></span>
+        </div>
+    </div>
+    <br />
+    <div>
+        <label>Цена товара</label>
+        <div>
+            <input asp-for="Goods.sum" />
+            <span asp-validation-for="Goods.sum"></span>
+        </div>
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Сохранить" />
+    </div>
+</form>

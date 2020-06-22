@@ -1,0 +1,28 @@
+﻿@page
+@model ContactsModel
+@{
+    ViewData["Title"] = "Контакты";
+}
+<h1>@ViewData["Title"]</h1>
+
+<head>
+    <SCRIPT type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="~/js/site.js"></SCRIPT>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <h2>Разработчик:</h2>
+    <ul>
+        <li></li>
+        <li>
+            <img alt= src="https://www.1zoom.ru/big2/541/255095-Sepik.jpg"
+                 class="image" ;
+                 style="width:150px;" />
+        </li>
+        <li>Электронная почта: <img src="https://img.icons8.com/cute-clipart/19/000000/email-sign.png"><a href="mailto:maild@mail.ru">mail@mail.ru</a></li>
+        <li>Контактный телефон: <img src="https://img.icons8.com/android/19/000000/phone.png"><a href="tel:+7">+7</a></li>
+        <li><img src="https://img.icons8.com/color/19/000000/viber.png"><a href="viber://chat?number=+7">Написать в Viber</a></li>
+        <li><img src="https://img.icons8.com/cute-clipart/19/000000/telegram-app.png" /><a href="tg://resolve?domain=+7">Написать в Телеграм</a></li>
+    </ul>
+</body>

@@ -1,0 +1,31 @@
+﻿@page "{idStorageFacilities:int}"
+@model TestCSharp.EditStorageRoomModel
+@{
+    ViewData["Title"] = "Редактировать склады";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="StorageRoom.idStorageRoom" type="hidden" />
+    <div>
+        <label>Наименование клада</label>
+        <div>
+            <input asp-for="StorageRoom.storageRoom" />
+            <span asp-validation-for="StorageRoom.storageRoom"></span>
+        </div>
+    </div>
+    <br />
+    <div>
+        <label>Арес склада</label>
+        <div>
+            <input asp-for="StorageRoom.Address" />
+            <span asp-validation-for="StorageRoom.Address"></span>
+        </div>
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Сохранить" />
+    </div>
+</form>

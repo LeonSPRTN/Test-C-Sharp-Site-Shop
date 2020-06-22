@@ -1,0 +1,30 @@
+﻿@page
+@model StorageFacilitiesModel
+@{
+    ViewData["Title"] = "Склады";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr><<th>Наименование склада</th><th>Адрес склада</th><
+    </thead>
+    <tbody>
+        @foreach (var storageRoom in Model.StorageRoom)
+        {
+            <tr>
+                <th>@storageRoom.storageRoom</th>
+                <th>@storageRoom.Address</th>
+                <th>
+                    <form method="post">
+                        <a asp-page="EditStorageRoom" asp-route-idStorageFacilities="@storageRoom.idStorageRoom">Изменить</a>
+                        <button type="submit" asp-page-handler="delete" asp-route-idStorageFacilities="@storageRoom.idStorageRoom">
+                            Удалить
+                        </button>
+                    </form>
+                </th>
+            </tr>
+
+        }
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿@page
+@model TestCSharp.WorkingGoodsModel
+@{
+    ViewData["Title"] = "Работа со списком товаров";
+}
+
+<h1>@ViewData["Title"]</h1>
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Наименование товара</th>
+            <th>Модель</th>
+            <th>Характеристики товара</th>
+            <th>Стоимость товара</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var goods in Model.Goods)
+        {
+            <tr>
+                <th>@goods.name</th>
+                <th>@goods.model</th>
+                <th>@goods.characteristic</th>
+                <th>@goods.sum</th>
+                <th class="Buttons">
+                    <form method="post">
+                        <a asp-page="EditGoods" asp-route-idGoods="@goods.idGoods">Изменить</a>
+                        <button type="submit" asp-page-handler="delete" asp-route-idGoods="@goods.idGoods">
+                            Удалить
+                        </button>
+                    </form>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
+

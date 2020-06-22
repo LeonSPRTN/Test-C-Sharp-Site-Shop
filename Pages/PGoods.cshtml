@@ -1,0 +1,30 @@
+﻿@page
+@model TestCSharp.PGoodsModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Товары";
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+<label>Наименование товара</label>
+<form method="post">
+    Найти по наименованию:
+    <input name="name" />
+</form>
+<form method="get">
+    <input type="submit" value="Сбрсить поиск"/>
+</form>
+<table class="table">
+    <thead>
+        <tr><th>Наименование товара</th><th>Модель</th><th>Характеристики товара</th><th>Стоимость товара</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var goods in Model.Goods)
+        {
+            <tr><th>@goods.name</th><th>@goods.model</th><th>@goods.characteristic</th><th>@goods.sum</th></tr>
+        }
+    </tbody>
+</table>
+
